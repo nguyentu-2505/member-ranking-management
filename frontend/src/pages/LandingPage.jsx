@@ -11,7 +11,6 @@ const LandingPage = () => {
         <IntroSectionLanding /> 
         <AboutUsLanding />
         <GallerySection/>
-        <AboutUsLanding />
         <Footer/>
       </>
     )
