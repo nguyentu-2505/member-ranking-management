@@ -3,25 +3,25 @@ import React, { useLayoutEffect, useRef, useState } from "react";
 const FAQFrame = ({question, answer, borderColor}) => {
     const [expanded, setExpanded] = useState(false);
     const answerRef = useRef(null);
-    const [maxHeight, setMaxHeight] = useState(0);
+    const wrapperRef = useRef(null);
 
     useLayoutEffect(()=>{
-        if(!answerRef.current) return;
+        if(!answerRef.current || !wrapperRef.current) return;
         const h = answerRef.current.scrollHeight;
-        setMaxHeight(expanded ? h : 0);
+        wrapperRef.current.style.maxHeight = expanded ? `${h}px` : "0px";
     },[expanded, answer])
   return (
     <div className="border border-solid rounded-xl py-0 px-8 my-4 mx-16 shadow-md text-[18px]" style={{ borderColor}}>
       <div className="py-6 px-0 cursor-pointer font-bold text-[24px] flex justify-between w-full">
         <div>{question}</div>
-        <span className={`material-symbols-outlined !text-5xl font-normal transition-transform duration-200 ${expanded ? "rotate-180": ""}`}
+        <span className={`material-symbols-outlined text-5xl! font-normal transition-transform duration-200 ${expanded ? "rotate-180": ""}`}
         onClick={()=> setExpanded(prev=> !prev)}
         >expand_circle_down</span>
 
       </div>
         <div
+        ref={wrapperRef}
         className="overflow-hidden transition-[max-height] duration-300 ease-in-out"
-        style={{ maxHeight }}
       >
         <div
           ref={answerRef}
