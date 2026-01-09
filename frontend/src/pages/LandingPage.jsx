@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import ArrowButton from "../components/ArrowButton";
 import FAQSections from "../components/FAQSections";
 import MemberIntro from "../components/MemberIntro";
+import SloganPart from "../components/SloganLanding"; 
 
 const LandingPage = () => {
   return (
@@ -14,6 +15,7 @@ const LandingPage = () => {
       <NavBar />
       <IntroSectionLanding />
       <AboutUsLanding />
+      <SloganPart />
       <MemberIntro />
       <EventLanding />
       <GallerySection />

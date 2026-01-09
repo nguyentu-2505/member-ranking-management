@@ -36,8 +36,8 @@ const teamData = [
 
 const MemberIntro = () => {
   return (
-    <div className="py-20 px-5 text-center bg-white">
-      <h1 className="text-4xl text-[#109d58] mb-12">Meet Our Team</h1>
+    <div className="py-20 px-5 text-center bg-white" id="section-members">
+      <h1 className="text-4xl font-extrabold text-[#109d58] mb-12">Meet Our Team</h1>
       <div className="flex flex-wrap justify-center gap-10">
         {teamData.map((member, i) => (
           <div className="w-62.5 transition-transform duration-300 ease-in-out hover:-translate-y-2.5" key={member.id}>
