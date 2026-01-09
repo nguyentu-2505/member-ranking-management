@@ -7,7 +7,6 @@ const AssistantChatbox = ({ isOpen, onClose }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState([
     {
-      id: 1,
       text: "Hey, I am the club assistant, powered by AI. How may I assist you today?",
       sender: 'bot',
     },
@@ -20,7 +19,6 @@ const AssistantChatbox = ({ isOpen, onClose }) => {
 
     const userText = inputValue.trim();
     const newMessage = {
-      id: Date.now(),
       text: userText,
       sender: 'user',
     };
@@ -35,7 +33,6 @@ const AssistantChatbox = ({ isOpen, onClose }) => {
       });
 
       const botReply = {
-        id: Date.now() + 1,
         text: response.data.reply,
         sender: 'bot',
       };
@@ -44,7 +41,6 @@ const AssistantChatbox = ({ isOpen, onClose }) => {
     } catch (error) {
       console.error("Chat error:", error);
       const errorMsg = {
-        id: Date.now() + 1,
         text: "Sorry, I encountered an error. Please try again later.",
         sender: 'bot',
       };
@@ -85,7 +81,6 @@ const AssistantChatbox = ({ isOpen, onClose }) => {
             
             {messages.map((msg) => (
               <div
-                key={msg.id}
                 className={`flex w-full ${
                   msg.sender === 'user' ? 'justify-end' : 'justify-start'
                 }`}

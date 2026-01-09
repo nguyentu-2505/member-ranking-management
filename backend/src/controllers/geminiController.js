@@ -17,10 +17,10 @@ export const getGeminiResponse = async (req, res) => {
       model: "gemini-2.5-flash-lite",
       contents: message,
       config: {
-        systemInstruction: `You are a helpful assistant for "GDG on Campus FPT University" Club. Provide concise and relevant answers about the club's activities, membership, events, and other related information.`,
+        systemInstruction: `You are a helpful assistant for "GDG on Campus FPT University" Club. Provide concise and relevant answers about the club's activities, membership, events, and other related information. When you answer, only use text and not markdowns. If you don't know the answer, respond with "I'm sorry, I don't have that information at the moment."`,
         temperature: 1,
         thinkingConfig: {
-            includeThoughts: false,
+          includeThoughts: false,
         }
     }
     });
