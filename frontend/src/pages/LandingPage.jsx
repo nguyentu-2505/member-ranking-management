@@ -8,11 +8,15 @@ import ArrowButton from "../components/ArrowButton";
 import FAQSections from "../components/FAQSections";
 import MemberIntro from "../components/MemberIntro";
 import SloganPart from "../components/SloganLanding"; 
+import AssistantChatbox from "../components/AssistantChatbox";
+import { useState } from "react";
 
 const LandingPage = () => {
+  const [isChatBoxOpen, setIsChatBoxOpen] = useState(false);
+
   return (
     <>
-      <NavBar />
+      <NavBar onChatToggle={() => setIsChatBoxOpen((prev) => !prev)} />
       <IntroSectionLanding />
       <AboutUsLanding />
       <SloganPart />
@@ -22,6 +26,7 @@ const LandingPage = () => {
       <FAQSections />
       <Footer />
       <ArrowButton />
+      <AssistantChatbox isOpen={isChatBoxOpen} onClose={() => setIsChatBoxOpen(false)} />
     </>
   );
 };
